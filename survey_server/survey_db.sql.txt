@@ -1,0 +1,30 @@
+create database survey;
+
+use survey;
+
+CREATE TABLE survey_post(
+    id int NOT NULL,
+    title varchar(100) NOT NULL,
+    description varchar(255) NOT NULL,
+    count int,
+    PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE response(
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(100) NOT NULL,
+    total_selected_by int,
+    survey_post_id int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (survey_post_id ) REFERENCES survey_post(id)
+
+);
+
+insert into survey_post values(1,'Best Actor','Select the best actor according to you',0);
+insert into response values(1,'Aamir Khan',0,1);
+insert into response values(2,'Hrithik Roshan',0,1);
+insert into response values(3,'Akshay Kumar',0,1);
+
+
