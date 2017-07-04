@@ -1,0 +1,44 @@
+    <section *ngIf="surveyPost">
+        <div class="jumbotron">
+    <h2> {{surveyPost.title}}</h2>
+    <h3>{{surveyPost.description}}</h3>
+        </div>
+    </section>
+    <section>
+<div class="table table-striped">
+<!--<div class="col-lg-6">-->
+        
+<form  #personForm="ngForm">
+<!--<div>
+<label for="title">Name: </label>
+<input type="text" name="title" [(ngModel)]="surveyPost.title" required #title="ngModel">
+<div [hidden]="title.valid || title.pristine" class="error">
+title is required !
+</div>
+</div>
+<div>
+<label for="description">Weight: </label>
+<input type="text" name="description" [(ngModel)]="surveyPost.description">
+</div>
+<div>
+<label for="count">Height: </label>
+<input type="number" name="count" [(ngModel)]="surveyPost.count">
+</div>-->
+
+<div *ngFor="let availableResponse of surveyPost.availableResponses" class="form-group">
+    <div class="radio">
+    <label>
+ <input type="radio" name="response" value="{{availableResponse.id}}" [(ngModel)]="selectedResponse"> {{availableResponse.name}}
+    </label>
+    </div>
+</div>
+
+<button (click)="updateResponse(selectedResponse)" class="btn btn-success">Submit</button>
+    <button (click)="gotoSurveysList()" class="btn btn-default">Back to Surveys list</button>
+
+
+</form>
+<!--</div>-->
+</div>
+
+</section>
