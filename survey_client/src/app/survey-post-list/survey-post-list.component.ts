@@ -14,7 +14,7 @@ import { SurveyPostService } from "../survey-post.service";
     
  <table class="table table-striped table-hover " align="left">   
   <thead>
-    <tr>
+    <tr  align="center">
       <th>#</th>
       <th>Title</th>
       <th>Count</th>
@@ -43,19 +43,9 @@ export class SurveyPostListComponent implements OnInit {
    }
 
   ngOnInit() {
-    //this.surveyPosts=this.surveyPostService.getAll();
+   
     this.surveyPostService.getAll().subscribe(p=>this.surveyPosts=p);
-  //  this.surveyPostService.getAll().subscribe(surveyPosts => {
-  //     console.log(surveyPosts)
-  //   this.surveyPosts.push(surveyPosts);
-  //     console.log(this.surveyPosts)
-  //   },
-  //   err => {
-  //     console.log(err);
-  //     return false;
-  //   });
 
-  // this.surveyPostService.getAll().then(surveyPosts=>this.surveyPosts=surveyPosts);
   }
 
 

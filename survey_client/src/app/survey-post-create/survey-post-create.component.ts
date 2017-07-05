@@ -54,22 +54,21 @@ export class SurveyPostCreateComponent implements OnInit {
      
          console.log(this.myForm.value);
             this.surveyPostService.addSurvey(this.myForm.value).subscribe(data => {
-      if(data.success){
-        
-        console.log(data);
-        console.log("hi");
+      {        
+                if(data===true){
+                    alert("Saved successfully");
+                    
+                }
+                else{
+                    alert("Something went wrong")
+                }
       
+            window.location.reload();
 
-
-      } else {
-      }
-  
+      } 
     });
     
-    console.log("subham");
-    alert("Saved");
-     window.location.reload();
-    }
+   }
     }
 
 

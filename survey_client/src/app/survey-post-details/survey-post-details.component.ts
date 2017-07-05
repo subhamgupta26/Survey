@@ -41,20 +41,20 @@ gotoSurveysList(){
 let link = ['/surveys'];
 this.router.navigate(link);
 }
-
-// saveSurveyPostDetails(){
-// this.surveyPostService.save(this.surveyPost);
-//
 updateResponse(selectedResponse){
-  //alert(selectedResponse);
   if(selectedResponse==null){
     alert("please select something");
   }
   else{
   console.log(selectedResponse);
   this.surveyPostService.updateResponse(selectedResponse).subscribe(data=>{
-    console.log(data);
-    this.router.navigate(['/']);
+    if(data===true){
+      alert("Saved Successfully");
+      this.router.navigate(['/']);
+    }
+    else{
+      alert("Something Went Wrong");
+    }
   },
     err => {
       console.log(err);
@@ -63,27 +63,6 @@ updateResponse(selectedResponse){
   }
 
 }
-
-// this.surveyService.addVoteCount(this.id).subscribe(survey => {
-//       // console.log(survey.choice)
-//       // this.survey=survey
-//       // this.survey.forEach(element => {
-//       //   console.log(element)
-//       // });
-//       console.log(survey)
-
-//       this.survey=survey.Choices;
-//       this.Title=survey.title;
-//       console.log(this.survey);
-
-//       //  this.flashMessage.show('you have successfully submitted the survey', {cssClass: 'alert-success', timeout: 3000});
-//         this.router.navigate(['/']);
-//     },
-//     err => {
-//       console.log(err);
-//       return false;
-//     });
-//   }
  }
 
 
